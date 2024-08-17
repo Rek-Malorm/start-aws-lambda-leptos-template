@@ -1,0 +1,29 @@
+version: 0.2
+
+env:
+  shell: bash
+
+phases:
+  install:
+    commands:
+      - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      - source $HOME/.cargo/env
+      - pip3 install cargo-lambda
+      - cargo install cargo-leptos
+  build:
+    commands:
+      - cargo leptos build --release
+      - LEPTOS_OUTPUT_NAME={{project_name}} cargo lambda build --no-default-features --features=ssr --release
+      - cd target/lambda/{{project_name}}/
+      - zip deployable.zip bootstrap
+      - cd ../../..
+      - mkdir release
+      - mv target/lambda/{{project_name}}/deployable.zip release/
+
+artifacts:
+  files:
+    - '**/*'
+
+cache:
+  paths:
+    - 'target/**/*'

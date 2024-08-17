@@ -1,0 +1,8 @@
+[placeholders]
+project_name = { promt = "Enter project name", type = "string", regex = "^[a-zA-Z0-9_]+$" }
+region = { promt = "Enter AWS region", type = "string" }
+git_repo = { promt = "Enter git repo url", type = "string"}
+branch = { promt = "Enter branch", type = "string", default = "main" }
+codestar_connection_arn = { promt = "Enter codestar connection arn", type = "string" }
+remote_state_bucket = { promt = "Enter remote state bucket", type = "string" }
+remote_state_key = { promt = "Enter remote state key", type = "string" }
