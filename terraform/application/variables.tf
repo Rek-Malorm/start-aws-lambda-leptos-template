@@ -14,10 +14,6 @@ variable "aws_account_id" {
   type = string
 }
 
-variable "create_cert" {
-  type = bool
-}
-
 variable "existing_cert_arn" {
   type = string
 }

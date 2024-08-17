@@ -36,17 +36,10 @@ resource "aws_apigatewayv2_domain_name" "this" {
   domain_name = var.base_domain
 
   domain_name_configuration {
-    certificate_arn = var.create_cert ? module.cert.arn : var.existing_cert_arn
+    certificate_arn = var.existing_cert_arn
     endpoint_type   = "REGIONAL"
     security_policy = "TLS_1_2"
   }
-}
-
-module "cert" {
-  count         = var.create_cert ? 1 : 0
-  source      = "./cert"
-
-  base_domain = var.base_domain
 }
 
 resource "aws_apigatewayv2_api_mapping" this {

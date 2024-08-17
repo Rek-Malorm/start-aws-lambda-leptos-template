@@ -1,8 +1,10 @@
 [placeholders]
-project_name = { prompt = "Enter project name", type = "string", regex = "^[a-zA-Z0-9_]+$" }
+website_url = { prompt = "Enter website url", type = "string" }
+aws_account_id = { prompt = "Enter AWS account id", type = "string" }
 region = { prompt = "Enter AWS region", type = "string" }
-git_repo = { prompt = "Enter git repo url", type = "string"}
+git_repo = { prompt = "Enter git repo url", type = "string" }
 branch = { prompt = "Enter branch", type = "string", default = "main" }
 codestar_connection_arn = { prompt = "Enter codestar connection arn", type = "string" }
 remote_state_bucket = { prompt = "Enter remote state bucket", type = "string" }
 remote_state_key = { prompt = "Enter remote state key", type = "string" }
+acm_cert_arn = { prompt = "Enter acm cert arn", type = "string" }
